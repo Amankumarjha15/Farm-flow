@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-furrow-50 text-soil font-body antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-furrow-950;
+  }
+  ::selection {
+    @apply bg-wheat-300 text-soil;
+  }
+  :focus-visible {
+    outline: 2px solid theme('colors.wheat.500');
+    outline-offset: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-DEFAULT px-4 py-2.5 font-body font-semibold text-sm transition-colors duration-150 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-furrow-800 text-furrow-50 hover:bg-furrow-900;
+  }
+  .btn-accent {
+    @apply btn bg-wheat-500 text-soil hover:bg-wheat-600;
+  }
+  .btn-outline {
+    @apply btn border border-furrow-700 text-furrow-800 hover:bg-furrow-100;
+  }
+  .btn-ghost {
+    @apply btn text-furrow-800 hover:bg-furrow-100;
+  }
+  .input {
+    @apply w-full rounded-DEFAULT border border-furrow-100 bg-white px-3.5 py-2.5 text-sm text-soil placeholder:text-soil/40 focus:border-furrow-600 focus:outline-none focus:ring-1 focus:ring-furrow-600;
+  }
+  .label {
+    @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-furrow-800/70;
+  }
+  .card {
+    @apply rounded-lg border border-furrow-100 bg-white shadow-sm;
+  }
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold;
+  }
+}
